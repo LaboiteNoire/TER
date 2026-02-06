@@ -1,0 +1,176 @@
+\documentclass[10pt,a4paper]{article}
+\title{\textbf{T} \phantom{aaaa} \textbf{E} \phantom{aaaa} \textbf{R}}
+\author{
+  ANTOINE DERRIEN\\
+  \texttt{antoine.derrien@etu.univ-lyon1.fr}
+  \and
+  SAMUEL TORT\\
+  \texttt{samuel.tort@etu.univ-lyon1.fr}
+  \and
+  MAHLÎ, REINETTE\\
+  \texttt{mahli.reinette@etu.univ-lyon1.fr}
+}
+\date{30/01/2026}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[french]{babel}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{caption}
+
+\usepackage{listings}
+\usepackage{xcolor}
+
+
+\usepackage[many]{tcolorbox}
+\usepackage{lipsum}
+\usepackage{tikz}
+\usetikzlibrary{automata, positioning, arrows}
+\usepackage{pgfplots}
+\usepackage{xcolor}
+\usepackage{amsfonts}
+\usepackage{dsfont}
+\usepackage{xr-hyper} 
+\usepackage{hyperref} 
+\usepackage{algpseudocode}
+\usepackage{algorithm}
+\usepackage{chronology}
+\externaldocument[B-]{docB}[Annexe01.pdf]% <- full or relative path
+
+
+
+% le préambule
+
+
+
+
+
+
+
+
+
+
+
+% initialisation des couleurs
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+\definecolor{mymauve}{rgb}{0.58,0,0.82}
+
+
+
+
+
+
+%block de code 
+\lstdefinestyle{mystyle}{
+    backgroundcolor=\color{backcolour},   
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{magenta},
+    numberstyle=\tiny\color{codegray},
+    stringstyle=\color{codepurple},
+    basicstyle=\ttfamily\footnotesize,
+    breakatwhitespace=false,         
+    breaklines=true,                 
+    captionpos=b,                    
+    keepspaces=true,                 
+    numbers=left,                    
+    numbersep=5pt,                  
+    showspaces=false,                
+    showstringspaces=false,
+    showtabs=false,                  
+    tabsize=2
+}
+
+\lstset{style=mystyle}
+
+
+
+
+
+
+%initialisation graphics
+\tikzset{
+->,
+node distance = 2cm}
+
+
+
+
+
+
+
+
+\renewcommand\fbox{\fcolorbox{blue}{black!20}}
+
+
+
+
+
+
+
+
+
+
+% le corps du document
+
+
+
+
+
+
+% le préambule
+\begin{document}
+%titre
+\pagecolor{black!20}
+\maketitle
+
+
+\begin{center}
+\textbf{\textit{M1 Actuariat}}
+
+\textbf{\textit{ISFA}}
+
+\includegraphics[width=4cm,height=2cm]{img1}
+
+\href{https://github.com/LaboiteNoire/TER.git}{\includegraphics[width=1cm,height=1cm]{img2}}
+
+\end{center}
+
+
+\newpage
+
+\phantom{aaaaaa}
+
+\tableofcontents
+
+\newpage
+
+
+\section{Abstract}
+\subsection{Abstract}
+\begin{center}
+\begin{minipage}[r]{0.1\textwidth}
+
+\end{minipage}
+\begin{minipage}[r]{0.8\textwidth}
+
+Toutes les ressources utilisées seront présentes en annexes et sur le \href{https://github.com/LaboiteNoire/TER.git}{\textit{\textbf{repository}}} \textit{github} ci-dessus.
+
+\phantom{aaaaaa}
+
+Une \colorbox{black!40}{frise chronologique} nous accompagnera tout le long du projet. Elle marquera en \colorbox{green!60}{vert} notre avancée réelle et \colorbox{red!60}{rouge,} les ressources précédentes, utilisées pour construire et ou étoffer notre réponse. 
+
+\end{minipage}
+\end{center}
+
+
+\section{Annex}
+\subsection{Annex}
+
+
+
+
+
+\end{document}
