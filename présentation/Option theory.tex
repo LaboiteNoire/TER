@@ -1,0 +1,323 @@
+\documentclass[10pt,a4paper]{article}
+\title{\textbf{OPTION THEORY}}
+\author{
+  HAI DANG TRAN NGUYEN\\
+  \texttt{trannguyenhaidang21@gmail.com}
+  \and
+  MAHLÎ, REINETTE\\
+  \texttt{mahli.reinette@etu.univ-lyon1.fr}
+}
+\date{30/01/2026}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[english]{babel}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{caption}
+
+\usepackage{listings}
+\usepackage{xcolor}
+
+
+\usepackage[many]{tcolorbox}
+\usepackage{lipsum}
+\usepackage{tikz}
+\usetikzlibrary{automata, positioning, arrows}
+\usepackage{pgfplots}
+\usepackage{xcolor}
+\usepackage{amsfonts}
+\usepackage{dsfont}
+\usepackage{xr-hyper} 
+\usepackage{hyperref} 
+\usepackage{algpseudocode}
+\usepackage{algorithm}
+\usepackage{chronology}
+\usepackage{ulem}
+\usepackage{booktabs}
+\usepackage{multirow}
+\usepackage{float}
+\usepackage{array}
+\externaldocument[B-]{docB}[Annexe01.pdf]% <- full or relative path
+
+
+
+% le préambule
+
+
+
+
+
+
+
+
+
+
+
+% initialisation des couleurs
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+\definecolor{mymauve}{rgb}{0.58,0,0.82}
+\definecolor{letcolor}{rgb}{0.92,0.87,0.8}
+\definecolor{theocolor}{rgb}{1,0.75,0.75}
+\definecolor{rescolor}{rgb}{1,0.62,0.31}
+
+
+
+
+
+
+%block de code 
+\lstdefinestyle{mystyle}{
+    backgroundcolor=\color{backcolour},   
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{magenta},
+    numberstyle=\tiny\color{codegray},
+    stringstyle=\color{codepurple},
+    basicstyle=\ttfamily\footnotesize,
+    breakatwhitespace=false,         
+    breaklines=true,                 
+    captionpos=b,                    
+    keepspaces=true,                 
+    numbers=left,                    
+    numbersep=5pt,                  
+    showspaces=false,                
+    showstringspaces=false,
+    showtabs=false,                  
+    tabsize=2
+}
+
+\lstset{style=mystyle}
+
+
+
+
+
+
+%initialisation graphics
+\tikzset{
+->,
+node distance = 2cm}
+
+
+
+
+
+
+\renewcommand\fbox{\fcolorbox{blue}{black!20}}
+%\renewcommand[1]{\N}{$\mathbb{#1}$}
+
+
+\newcommand{\citationn}[1]{« \textit{#1} »}
+\newcommand{\linkk}[2]{\href{#2}{\textcolor{urlcolor}{#1}}}
+
+\newcommand{\p}[1]{\begin{large}
+$\mathbb{P}$(#1)
+\end{large}}
+\newcommand{\ep}{\begin{large}
+($\Omega$, $\mathcal{A}$, $\mathbb{P}$)
+\end{large}}
+\newcommand{\epf}{\begin{large}
+($\Omega$, $\mathcal{A}$, $\mathcal{F} =$\end{large} \begin{small}$(\mathcal{F}_t)_{t \in T}$\end{small} \begin{large}, $\mathbb{P}$)
+\end{large}}
+\newcommand{\hpp}[1]{\begin{large}
+$R^{#1}$ \end{large} $=$ \begin{small}$(R_t^{#1})_{t \in T}$
+\end{small}}
+\newcommand{\ipP}[1]{\begin{large}
+$R^{|#1|}$ \end{large} $=$ \begin{small}$(R_t^{|#1|})_{t \in T}$
+\end{small}}
+\newcommand{\IR}[1]{\colorbox{rescolor}{\textcolor{black}{#1}}}
+\newcommand{\LM}[3]{\begin{large}
+$M^{\begin{small} (#1, #2, #3) \end{small}}$ \end{large}}
+\newcommand{\GLM}[4]{\begin{large}
+$\phantom{a}^{#4} M^{\begin{small} (#1, #2, #3) \end{small}}$ \end{large}}
+%\newcommand{\Rr}[1]{\mathbb{R}}
+
+\newcommand{\BC}[1]{\colorbox{red!60}{\textcolor{black}{#1}}}
+\newcommand{\GC}[1]{\colorbox{green!60}{\textcolor{black}{#1}}}
+
+
+
+
+\newenvironment{newquote}
+	{
+	\begin{center}
+	\begin{minipage}[r]{0.1\textwidth}
+	\phantom{aaaa}
+	
+	\end{minipage}
+	\begin{minipage}[r]{0.89\textwidth}
+	\begin{tcolorbox}[colback=black!80,colbacklower=black!80,colframe=black!80,rightrule=1mm,arc=0mm]
+	\begin{center}
+	« }{
+	»
+	\end{center}
+	\end{tcolorbox}
+	\end{minipage}
+	\end{center}
+	}
+\newenvironment{para}
+	{
+	\begin{center}
+	\begin{minipage}[r]{0.1\textwidth}
+	\phantom{aaaa}
+	
+	\end{minipage}
+	\begin{minipage}[r]{0.89\textwidth}
+	
+	}{
+	
+	\phantom{aaaaaaa}
+	\end{minipage}
+	\end{center}
+	}
+\newenvironment{capsulee}
+	{
+	\begin{center}
+	\begin{minipage}[r]{1\textwidth}
+	
+	}{
+	
+	\phantom{aaaaaaa}
+	\end{minipage}
+	\end{center}
+	}
+\newenvironment{Let}[2]
+	{
+	\begin{Large}
+	\textbf{$\circ$ #1 : #2}
+	\end{Large}
+	
+	\begin{center}
+	\begin{minipage}[r]{0.1\textwidth}
+	\phantom{aaaa}
+	
+	\end{minipage}
+	\begin{minipage}[r]{0.89\textwidth}
+	\begin{tcolorbox}[colback=letcolor,colbacklower=letcolor,colframe=letcolor,rightrule=1mm,arc=0mm]
+	\textit{Let} : #2, define by :
+	
+	}{
+	
+	\end{tcolorbox}
+	
+	\begin{small}
+	\textit{definitions and notations}
+	\end{small}
+	\end{minipage}
+	\end{center}
+	}
+\newenvironment{Theo}[2]
+	{
+	\begin{Large}
+	\textbf{$\diamond$ #1}
+	\end{Large}
+	
+	\begin{center}
+	\begin{minipage}[r]{0.1\textwidth}
+	\phantom{aaaa}
+	
+	\end{minipage}
+	\begin{minipage}[r]{0.89\textwidth}
+	\begin{tcolorbox}[colback=theocolor,colbacklower=theocolor,colframe=black!96,rightrule=1mm,arc=0mm]
+	\textbf{Hypothesys :}
+	
+	#2
+	
+	\tcblower
+	
+	\textbf{Conclusions :}
+	
+	}{
+	
+	\end{tcolorbox}
+	
+	\begin{small}
+	\textit{theorem}
+	\end{small}
+	\end{minipage}
+	\end{center}
+	}
+
+
+\colorlet{textcolor}{white!80!gray}
+\colorlet{backgroundcolor}{black!30!gray}
+\colorlet{urlcolor}{blue!25!white}
+\colorlet{souligne}{black!90}
+\AtBeginDocument{\color{textcolor}}
+
+
+
+
+
+
+% le corps du document
+
+
+
+
+
+
+% le préambule
+\begin{document}
+%titre
+\pagecolor{black!96}
+\maketitle
+
+
+\begin{center}
+\textbf{\textit{M1 Actuariat}}
+
+\textbf{\textit{ISFA}}
+
+\includegraphics[width=4cm,height=2cm]{img1}
+
+\href{https://github.com/LaboiteNoire/TER.git}{\includegraphics[width=1cm,height=1cm]{img2}}
+
+\phantom{aaaaaa}
+
+\begin{LARGE}
+\textbf{
+\uline{
+OPTION THEORY ASSIGNMENT
+}
+}
+\end{LARGE}
+
+\end{center}
+
+
+
+\part{Question 2}
+
+
+\newpage
+\section{c°}
+
+
+\begin{Let}{Geometric Brownian Motions}{$(S^{(1)}, S^{(2)})$}
+— $(\rho, \mu_1, \mu_2, \sigma_1, \sigma_2) \in \mathbb{R}_{*}^3 \times \mathbb{R}^{2}_{+}$
+
+— $(W^{(1)}, W^{(2)})$, 2 brownians, such as $<W^{(1)}, W^{(2)}> = \rho$
+
+\[  S^{(1)}_t = S^{(1)}_0 exp((\mu_1 - \dfrac{\sigma_1^2}{2})t + \sigma_1 W^{(1)}_t) \]
+
+\[  S^{(2)}_t = S^{(2)}_0 exp((\mu_2 - \dfrac{\sigma_2^2}{2})t + \sigma_2 W^{(2)}_t) \]
+\end{Let}
+
+\[  S^{(1)}_t = S^{(1)}_0 + \int_0^t \mu_1 S^{(1)}_s ds + \int_0^t \sigma_1 S^{(1)}_s dW^{(1)}_s \]
+
+\[  S^{(2)}_t = S^{(2)}_0 + \int_0^t \mu_2 S^{(2)}_s ds + \int_0^t \sigma_2 S^{(2)}_s dW^{(2)}_s \]
+
+\subsection*{démonstration}
+
+\[  dS^{(1)}_t = \mu_1 S^{(1)}_t dt + \sigma_1 S^{(1)}_t dW^{(1)}_t \]
+
+\[  \text{Let : } f = ln \]
+
+\[  dln(S^{(1)}_t) = f^{'}(S^{(1)}_t) dS^{(1)}_t - \drac{1}{2} f^{''}(S^{(1)}_t) d<S^{(1)}>_t \]
+
+\section{c°}
+
+\end{document}

@@ -13,7 +13,7 @@
 \date{30/01/2026}
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
-\usepackage[french]{babel}
+\usepackage[english]{babel}
 \usepackage{graphicx}
 \usepackage{hyperref}
 \usepackage{caption}
@@ -35,6 +35,7 @@
 \usepackage{algpseudocode}
 \usepackage{algorithm}
 \usepackage{chronology}
+\usepackage{ulem}
 \externaldocument[B-]{docB}[Annexe01.pdf]% <- full or relative path
 
 
@@ -57,6 +58,9 @@
 \definecolor{codepurple}{rgb}{0.58,0,0.82}
 \definecolor{backcolour}{rgb}{0.95,0.95,0.92}
 \definecolor{mymauve}{rgb}{0.58,0,0.82}
+\definecolor{letcolor}{rgb}{0.92,0.87,0.8}
+\definecolor{theocolor}{rgb}{1,0.75,0.75}
+\definecolor{rescolor}{rgb}{1,0.62,0.31}
 
 
 
@@ -100,13 +104,119 @@ node distance = 2cm}
 
 
 
-
-
 \renewcommand\fbox{\fcolorbox{blue}{black!20}}
+%\renewcommand[1]{\N}{$\mathbb{#1}$}
 
 
+\newcommand{\citationn}[1]{« \textit{#1} »}
+\newcommand{\linkk}[2]{\href{#2}{\textcolor{urlcolor}{#1}}}
+
+\newcommand{\p}[1]{\begin{large}
+$\mathbb{P}$(#1)
+\end{large}}
+\newcommand{\ep}{\begin{large}
+($\Omega$, $\mathcal{A}$, $\mathbb{P}$)
+\end{large}}
+\newcommand{\epf}{\begin{large}
+($\Omega$, $\mathcal{A}$, $\mathcal{F} =$\end{large} \begin{small}$(\mathcal{F}_t)_{t \in T}$\end{small} \begin{large}, $\mathbb{P}$)
+\end{large}}
 
 
+\newenvironment{newquote}
+	{
+	\begin{center}
+	\begin{minipage}[r]{0.1\textwidth}
+	\phantom{aaaa}
+	
+	\end{minipage}
+	\begin{minipage}[r]{0.89\textwidth}
+	\begin{tcolorbox}[colback=black!42,colbacklower=black!42,colframe=black!42,rightrule=1mm,arc=0mm]
+	\begin{center}
+	« }{
+	»
+	\end{center}
+	\end{tcolorbox}
+	\end{minipage}
+	\end{center}
+	}
+\newenvironment{para}
+	{
+	\begin{center}
+	\begin{minipage}[r]{0.1\textwidth}
+	\phantom{aaaa}
+	
+	\end{minipage}
+	\begin{minipage}[r]{0.89\textwidth}
+	
+	}{
+	
+	\phantom{aaaaaaa}
+	\end{minipage}
+	\end{center}
+	}
+\newenvironment{Let}[2]
+	{
+	\begin{Large}
+	\textbf{$\circ$ #1 : #2}
+	\end{Large}
+	
+	\begin{center}
+	\begin{minipage}[r]{0.1\textwidth}
+	\phantom{aaaa}
+	
+	\end{minipage}
+	\begin{minipage}[r]{0.89\textwidth}
+	\begin{tcolorbox}[colback=letcolor,colbacklower=letcolor,colframe=letcolor,rightrule=1mm,arc=0mm]
+	\textit{Let} : #2, define by :
+	
+	}{
+	
+	\end{tcolorbox}
+	
+	\begin{small}
+	\textit{definitions and notations}
+	\end{small}
+	\end{minipage}
+	\end{center}
+	}
+\newenvironment{Theo}[2]
+	{
+	\begin{Large}
+	\textbf{$\diamond$ #1}
+	\end{Large}
+	
+	\begin{center}
+	\begin{minipage}[r]{0.1\textwidth}
+	\phantom{aaaa}
+	
+	\end{minipage}
+	\begin{minipage}[r]{0.89\textwidth}
+	\begin{tcolorbox}[colback=theocolor,colbacklower=theocolor,colframe=black!96,rightrule=1mm,arc=0mm]
+	\textbf{Hypothesys :}
+	
+	#2
+	
+	\tcblower
+	
+	\textbf{Conclusions :}
+	
+	}{
+	
+	\end{tcolorbox}
+	
+	\begin{small}
+	\textit{theorem}
+	\end{small}
+	\end{minipage}
+	\end{center}
+	}
+
+
+\colorlet{textcolor}{white!80!gray}
+\colorlet{backgroundcolor}{black!30!gray}
+\colorlet{urlcolor}{blue!25!white}
+\colorlet{souligne}{black!90}
+\AtBeginDocument{\color{textcolor}}
 
 
 
@@ -123,7 +233,7 @@ node distance = 2cm}
 % le préambule
 \begin{document}
 %titre
-\pagecolor{black!20}
+\pagecolor{black!96}
 \maketitle
 
 
@@ -135,6 +245,14 @@ node distance = 2cm}
 \includegraphics[width=4cm,height=2cm]{img1}
 
 \href{https://github.com/LaboiteNoire/TER.git}{\includegraphics[width=1cm,height=1cm]{img2}}
+
+\begin{LARGE}
+\textbf{
+\uline{
+IMPACT OF EXCESS-OF-LOSS REINSURANCE ON CATASTROPHE RISK IN NON-LIFE INSURANCE
+}
+}
+\end{LARGE}
 
 \end{center}
 
@@ -150,26 +268,113 @@ node distance = 2cm}
 
 \section{Abstract}
 \subsection{Abstract}
-\begin{center}
-\begin{minipage}[r]{0.1\textwidth}
-
-\end{minipage}
-\begin{minipage}[r]{0.8\textwidth}
-
-Toutes les ressources utilisées seront présentes en annexes et sur le \href{https://github.com/LaboiteNoire/TER.git}{\textit{\textbf{repository}}} \textit{github} ci-dessus.
+\begin{para}
+This project investigates the impact of excess-of-loss reinsurance on the loss distribution of a non-life insurance portfolio exposed to catastrophic risks. First, aggregate losses are modeled using a frequency-severity framework, combining a Poisson distribution for claim frequency with a heavy-tailed distribution for claim severity.
 
 \phantom{aaaaaa}
 
-Une \colorbox{black!40}{frise chronologique} nous accompagnera tout le long du projet. Elle marquera en \colorbox{green!60}{vert} notre avancée réelle et \colorbox{red!60}{rouge,} les ressources précédentes, utilisées pour construire et ou étoffer notre réponse. 
+\textit{\textbf{Monte Carlo}} simulations are then performed to estimate the annual loss distribution and assess risk using standard measures such as Value-at-Risk \textit{(VaR)} and Tail Value-at-Risk \textit{(TVaR)}. In a second step, an excess-of-loss reinsurance treaty is introduced, and its effect on the loss distribution is analyzed.
 
-\end{minipage}
+\phantom{aaaaaa}
+
+The results show that reinsurance significantly reduces extreme losses and mitigates tail risk, with a particularly strong impact on TVaR. This study highlights the key role of reinsurance in managing catastrophic risk exposure for insurance companies.
+\end{para}
+
+
+\begin{para}
+\begin{center}
+\hyperlink{ref1}{\colorbox{souligne}{\textcolor{red}{\hypertarget{ref1}{Following sections items are clickable}}}}
 \end{center}
+\end{para}
+
+
+\subsection{Forewords}
+\begin{para}
+We refere to results and demonstrations writted in auxiliar papers. 
+In a first time if the github link doesent show the paper, just refresh the page.
+
+\phantom{aaaaaa}
+
+If the github link still doesent work, you can contact us in a second time at : \linkk{mhreinette@gmail.com}{mailto:mhreinette@gmail.com}.
+A other version of this paper is availible in a light theme on \linkk{this present link}{mailto:mhreinette@gmail.com}.
+
+\phantom{aaaaaa}
+
+All the ressources and notebook are availible on this github repository.
+
+Different colors is used to caracterise : \colorbox{letcolor}{\textcolor{black}{définitions}}, \colorbox{theocolor}{\textcolor{black}{theorem}}, \colorbox{rescolor}{\textcolor{black}{important results}}, \colorbox{red!60}{\textcolor{black}{crit}}\colorbox{green!60}{\textcolor{black}{ics}}.
+\end{para}
+
+
+
+
+\subsection{Updates}
+\begin{para}
+Succints notes on the recents updates of this paper : 
+
+— Finished abstract
+
+— Finished definition/notations environnement
+
+— Finished theorem environnement
+
+
+\end{para}
+
+
+
+
+\subsection{tests}
+\begin{para}
+Toutes les ressources utilisées seront présentes en annexes et sur le \href{https://github.com/LaboiteNoire/TER.git}{\textit{\textbf{repository}}} \textit{github} ci-dessus.
+\end{para}
+
+\begin{newquote}
+Tests tests
+\end{newquote}
 
 
 \section{Annex}
 \subsection{Annex}
+\subsection{Notations Index}
+\begin{Let}{$\sigma$-Algebra}{$\mathcal{A}$}
+— $\Omega$ : a space
+
+— $\Omega$ $\in \mathcal{A}$
+
+— $\forall A \in \mathcal{A}$, $\bar{A} \in \mathcal{A}$
+
+— $\forall (A_n)_{n \in \mathbb{N}} \in \mathcal{A}^{\mathbb{N}}$, $\bigcup_{n \in \mathbb{N}} A_n \in \mathcal{A}$
+
+\phantom{aaaa}— Let \citationn{the borelian $\sigma$-algrebra} : $\mathbb{B}(\mathbb{R}^n)$ \& $\lambda$ \citationn{Lebesgue mass function}.
+\end{Let}
+
+\begin{Let}{Probabilised Space}{\ep}
+— $\Omega$ : a space
+
+— $\mathcal{A}$ : a $\sigma$-algebra of $\Omega$
+
+— $\mathbb{P}$ : a probability mass function
+\end{Let}
+
+\begin{Let}{Filtered Space}{\epf}
+— \ep : a probabilised space
+
+— $\mathcal{F} =$ $(\mathcal{F}_t)_{t \in T}$ : the natural filtration of a Brownien motion $W$
+\end{Let}
 
 
+\begin{Theo}{Theorem}{
+
+— test
+
+— test}
+
+— conclusion
+\end{Theo}
+
+
+\subsection{Bibliography}
 
 
 
